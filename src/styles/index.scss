@@ -1,0 +1,16 @@
+@use 'base';
+
+body {
+    margin: 0;
+    background-color: base.$primary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* @media only screen and (max-width: 480px) {
+    body {
+        
+    }
+} */
