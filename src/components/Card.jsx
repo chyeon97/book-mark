@@ -12,8 +12,7 @@ const Card = ({data}) => {
                 <div className="title">{url}</div>
                 <div className="content">{content}</div>
             </div>
-            
-           
+            <button className="button">열기</button>
         </li>
     )
 }
