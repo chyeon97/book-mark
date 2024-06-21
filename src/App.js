@@ -2,7 +2,7 @@ import SearchInput from "./components/SearchInput";
 import Card from "./components/Card";
 import Header from './components/Header';
 import {useEffect} from 'react';
-import {getBookMarkList} from './firebase';
+import {getBookMarkList} from './firebase.config';
 
 let test = Array.from({length: 20}, () => { return {url: "www.naver.com", content: "네이버"}})
 
