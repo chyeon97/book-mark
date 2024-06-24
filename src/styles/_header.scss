@@ -1,6 +1,7 @@
 .container {
   width: 100%;
   height: 50px;
+  padding: 0px 20px 0px 50px;
   background: white;
   position: absolute;
   top: 0;
@@ -11,5 +12,4 @@
 .container img{
   float: right;
   cursor: pointer;
-  margin-right: 10px;
 }

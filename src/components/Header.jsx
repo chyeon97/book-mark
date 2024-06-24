@@ -1,7 +1,6 @@
 import React from 'react';
-import '../styles/header.scss';
+import '../styles/_header.scss';
 import ICON from '../images/menuIcon.png'
-import Button from './Button';
 
 const Header = () => {
     return (

@@ -1,12 +1,12 @@
 import classNames from "classnames/bind";
 import React from 'react';
-import "../styles/button.scss"
+import "../styles/_button.scss"
 
-const Button = ({size, color, children}) => {
+const Button = ({size, color, children, onClick}) => {
     return (
-        <div className={classNames('Button', size, color)} style={{'--color': color}}>
+        <button className={classNames('Button', size, color)} onClick={onClick}>
             {children}
-        </div>
+        </button>
     )
 }
 

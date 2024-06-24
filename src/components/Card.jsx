@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/card.scss";
+import "../styles/_card.scss";
 
 
 // url주소, 책갈피, 즐겨찾기 아이콘

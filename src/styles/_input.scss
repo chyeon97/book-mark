@@ -1,0 +1,52 @@
+$small: 300px;
+$medium: 400px;
+$large: 550px;
+
+.box {
+    height: 20px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: white;
+    padding: 5px;
+
+    &.large{
+        width: $large;
+        font-size: 1.25rem;
+    }
+    &.medium{
+        width: $medium;
+        font-size: 1rem;
+    }
+    &.small {
+        width: $small;
+        font-size: 0.875rem;
+    }
+
+    
+}
+
+@media only screen and (max-width: 480px) {
+    .box {
+        width: $small !important;
+    }
+}
+
+.box input {
+    width: 90%;
+    height: 100%;
+    padding: 2px 5px;
+    border: none;
+    border-radius: inherit;
+    outline: none;
+    font-size: 11pt;
+}
+
+textarea {
+    width: 90%;
+    height: 50px;
+    border-radius: inherit;
+    font-size: 10pt;
+    resize: none;
+    outline: none;
+    padding: 10px 0 0 10px;
+}
