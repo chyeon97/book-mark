@@ -14,6 +14,8 @@ const ModalBox = ({onClickClose, })=> {
                 <SearchInput multi={true} hintText={"간단한 설명을 기입하세요."}/>
                 <br/>
                 <div>
+
+                <Button size="medium" color="gray">취소</Button>
                 <Button size="medium" color="blue">저장</Button>
                 </div>
                

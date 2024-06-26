@@ -49,4 +49,8 @@ $pink: #f06595;
     &.pink {
       @include button-color($pink)
     }
+
+    & + .Button {
+      margin-left: 10px;
+    }
 }

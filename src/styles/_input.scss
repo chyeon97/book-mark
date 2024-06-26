@@ -25,11 +25,6 @@ $large: 550px;
     
 }
 
-@media only screen and (max-width: 480px) {
-    .box {
-        width: $small !important;
-    }
-}
 
 .box input {
     width: 90%;
@@ -49,4 +44,16 @@ textarea {
     resize: none;
     outline: none;
     padding: 10px 0 0 10px;
+}
+
+
+@media only screen and (max-width: 480px) {
+    .box {
+        width: $small !important;
+    }
+
+    textarea{
+        width: $small !important;
+
+    }
 }
