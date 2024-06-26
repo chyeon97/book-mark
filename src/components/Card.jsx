@@ -1,9 +1,10 @@
 import React from "react";
 import "../styles/_card.scss";
+import Button from './Button';
 
 
 // url주소, 책갈피, 즐겨찾기 아이콘
-const Card = ({data}) => {
+const Card = ({data, id, onClick}) => {
     const {url, content} = data;
 
     return (
@@ -12,7 +13,7 @@ const Card = ({data}) => {
                 <div className="title">{url}</div>
                 <div className="content">{content}</div>
             </div>
-            <button className="button">열기</button>
+            <Button id={id} size="medium" color={"pink"} onClick={onClick}>열기</Button>
         </li>
     )
 }

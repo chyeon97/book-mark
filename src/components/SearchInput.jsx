@@ -1,13 +1,13 @@
 import classNames from "classnames/bind";
 import React from "react";
 import "../styles/_input.scss"
-const SearchInput = ({hintText, size, multi}) => {
+const SearchInput = ({id, hintText, size, multi, onChange}) => {
     return (
         <>
-            {multi ? <textarea placeholder={hintText}/> : 
+            {multi ? <textarea id={id} placeholder={hintText} onChange={onChange}/> :
 
                 <div className={classNames("box", size)}>
-                    <input placeholder={hintText}/>
+                    <input id={id} placeholder={hintText} onChange={onChange}/>
                 </div>
             }
         </>

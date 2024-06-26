@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore/lite'
-import { getDocs, doc , collection} from 'firebase/firestore/lite'
+import { getDocs, doc , collection, addDoc} from 'firebase/firestore/lite'
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -18,4 +18,8 @@ export const getBookMarkList = async () => {
   const datas = collection(db, 'book-mark')
   const result = await getDocs(datas);
   return result.docs.map((e)  => e.data())
+}
+
+export const postBookMarkList = async (data) => {
+  return await addDoc(collection(db, "book-mark"), data)
 }
