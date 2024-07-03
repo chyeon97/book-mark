@@ -1,4 +1,7 @@
+@use 'base';
+
 .wrap {
+    width: base.$medium;
     padding-left: 0;
     list-style-position: inside;
     list-style-type: none;
@@ -10,11 +13,11 @@
     display: none;
 }
 
- //@media only screen and (max-width: 480px) {
- //    .wrap {
- //        max-height: ;
- //    }
- //} 
+ @media only screen and (max-width: 480px) {
+    .wrap {
+        width: base.$small
+    }
+ } 
 
 .wrap li{
     display: flex;

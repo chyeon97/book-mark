@@ -1,0 +1,106 @@
+@use 'base';
+
+.boxWrapper {
+    padding-top: 100px;
+    width: base.$large;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding-left: 0;
+    list-style-position: inside;
+    list-style-type: none;
+    max-height: 700px;
+    overflow: auto;
+}
+
+
+
+.boxWrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.rootWrapper{
+    position: relative;
+}
+
+.boxContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 180px;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.15);
+    transition: 0.5s;
+
+    &:hover {
+        .imgBx {
+            top: -20px;
+            scale: 0.9;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.2);
+        }
+
+        .content {
+            top: 70px;
+            height: 250px;
+        }
+    }
+}
+
+.boxContainer .imgBx{
+    position: absolute;
+    top: 20px;
+    width: 180px;
+    height: 110px;
+    background: #333;
+    border-radius: 12px;
+    transition: 0.5s;
+} 
+
+.boxContainer .imgBx img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+
+.boxContainer .content {
+    position: absolute;
+    top: 120px;
+    width: 100%;
+    height: 45px;
+    padding: 0 10px;
+    overflow: hidden;
+    text-align: center;
+    transition: 0.5s;
+}
+
+@media only screen and (max-width: 480px) {
+    .boxWrapper {
+        width: base.$small;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .boxContainer{
+        height: 150px;
+
+        &:hover {
+            .content {
+                top: 50px;
+            }
+        }
+    }
+
+    .boxContainer .imgBx{
+        width: 120px;
+        height: 80px;
+    }
+
+    .boxContainer .content {
+        top: 90px;
+    }
+ } 

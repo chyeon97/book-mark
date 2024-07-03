@@ -19,5 +19,9 @@ const SearchInput = ({id, hintText, size, multi, onChange}) => {
 export default SearchInput;
 
 SearchInput.defaultProps = {
+    id: "",
+    hintText: "",
     size: "medium",
+    multi: false,
+    onChange: () => {}
 }

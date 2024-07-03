@@ -1,15 +1,18 @@
+@use 'base';
+
 .container {
-  width: 100%;
+  width: base.$large;
+  display: flex;
+  justify-content: end;
+  align-items: center;
   height: 50px;
-  padding: 0px 20px 0px 50px;
   background: white;
   position: absolute;
-  top: 0;
-  left: 0;
-
+  top: 20px;
 }
 
-.container img{
-  float: right;
-  cursor: pointer;
+@media only screen and (max-width: 480px) {
+  .container {
+      width: base.$small !important;
+  }
 }

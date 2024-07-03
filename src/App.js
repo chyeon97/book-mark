@@ -1,12 +1,8 @@
-import SearchInput from "./components/SearchInput";
-import Card from "./components/Card";
 import Header from './components/Header';
 import React, {useEffect, useState} from 'react';
 import {getBookMarkList, postBookMarkList} from './firebase.config';
-import Button from './components/Button';
 import ModalBox from "./components/ModalBox";
-
-let test = Array.from({length: 20}, () => { return {url: "www.naver.com", content: "네이버"}})
+import Box from './components/Box';
 
 function App() {
     const [selectData, setSelectData] = useState([]);
@@ -77,16 +73,16 @@ function App() {
           onClickBtn={onClickBtn}
       />}
         <Header/>
-        <Button id={"addModal"} size={"medium"} color={'gray'} onClick={onClickBtn}>추가</Button>
-        <SearchInput hintText={"찾을 단어를 입력해주세요."}/>
 
-        <ul className="wrap">
-          {selectData.map((item) => {
-            return <Card id={item.url} key={item.url} data={item} onClick={onClickBtn}/>
-          })}
-        </ul>
-      
      
+            <div className="boxWrapper">
+                <Box/><Box/><Box/>
+                <Box/><Box/><Box/>
+            {/* {selectData.map((item) => {
+                return <Card id={item.url} key={item.url} data={item} onClick={onClickBtn}/>
+            })} */}
+            </div>
+       
      
     </>
     

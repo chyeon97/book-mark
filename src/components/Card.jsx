@@ -2,7 +2,6 @@ import React from "react";
 import "../styles/_card.scss";
 import Button from './Button';
 
-
 // url주소, 책갈피, 즐겨찾기 아이콘
 const Card = ({data, id, onClick}) => {
     const {url, content} = data;

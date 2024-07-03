@@ -1,6 +1,4 @@
-$small: 300px;
-$medium: 400px;
-$large: 550px;
+@use 'base';
 
 .box {
     height: 20px;
@@ -10,15 +8,15 @@ $large: 550px;
     padding: 5px;
 
     &.large{
-        width: $large;
+        width: base.$large;
         font-size: 1.25rem;
     }
     &.medium{
-        width: $medium;
+        width: base.$medium;
         font-size: 1rem;
     }
     &.small {
-        width: $small;
+        width: base.$small;
         font-size: 0.875rem;
     }
 
@@ -49,11 +47,11 @@ textarea {
 
 @media only screen and (max-width: 480px) {
     .box {
-        width: $small !important;
+        width: base.$small !important;
     }
 
     textarea{
-        width: $small !important;
+        width: base.$small !important;
 
     }
 }
