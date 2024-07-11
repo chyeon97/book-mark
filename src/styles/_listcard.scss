@@ -1,0 +1,45 @@
+.listCardContainer {
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 2px #ccc;
+    padding: 10px;
+    list-style: none;
+    margin-bottom: 10px;
+    cursor: pointer;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 2px;
+        background-color: white;
+    }
+
+    &:hover {
+        border: none;
+        background: #435058;
+        box-shadow: 0 0 10px #435058;
+        letter-spacing: 0.04em;
+        transition: 0.5s;
+    }
+}
+
+.innerContainer {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+
+    &:hover {
+        color: #435058;
+        
+    }
+
+    p {
+       
+        margin: 0px;
+        font-size: 15px;
+        color: gray;
+    }
+}

@@ -1,58 +1,92 @@
 import Header from './components/Header';
 import React, {useEffect, useState} from 'react';
-import {getBookMarkList, postBookMarkList} from './firebase.config';
+import {getBookMarkList, postBookMarkList, getGroupDataList} from './firebase.config';
 import ModalBox from "./components/ModalBox";
 import Box from './components/Box';
+import { getGroupList } from './Logics';
+import ModalList from './components/ModalList';
 
 function App() {
     const [selectData, setSelectData] = useState([]);
+    const [groupList, setGroupList] = useState([]);
+    const [viewModal, setViewModal] = useState({
+        open: false,
+        data: [],
+    })
     const [openModal, setOpenModal] = useState({
         "add": false,
+        "view": false,
     });
 
     useEffect(() => {
         (async () => {
-            const res = await getBookMarkList("book-mark")
+            const res = await getBookMarkList();
+            const groupList = getGroupList(res);
+            setGroupList(groupList);
             setSelectData(res);
         })();
     }, [])
 
-    const onToggleModal = (id, status) => {
+    const onToggleModal = (id) => {
         return setOpenModal((prev) => {
             return {
                 ...prev,
-                [id]: status,
+                [id]: !prev[id],
             }
         })
     }
 
 
+    const callbackFunc = {
+        onClickGroupBox: async (group) => {
+            console.log(group)
+            const res = await getGroupDataList(group)
+        
+            if(res.length > 0) {
+                callbackFunc.onToggleViewModal(true, res)
+            }
+            
+        },
+
+        onToggleViewModal: (flag, data) => {
+            if(flag) {
+                setViewModal(() => {
+                    return {open: true, data}
+                })
+            }else{
+                setViewModal((prev) => {return {open: !prev.open, data:[]}})
+            }
+        }
+
+    }
+
+
     const onClickBtn = (e, cb) => {
-        console.log(e.target.id)
         switch (e.target.id){
             case "addModal":
                 console.log(e.target.innerText)
                 switch (e.target.innerText) {
-                    case "추가":
-                        onToggleModal("add", true)
-                        break;
-
                     case "저장":
                         (async () => {
                             const param = {
                                 content: cb.contents,
                                 url: cb.url,
+                                group: "테스트",
                                 storeTime: new Date(),
                                 deleteTime: "",
                             }
+                            console.log(param)
                             await postBookMarkList(param)
+                            onToggleModal("add")
+                            await getBookMarkList();
+                            
                         })();
 
                         break;
 
                     case "취소":
                     default:
-                        onToggleModal("add", false)
+                        onToggleModal("add")
                         break;
                 }
                 break;
@@ -64,23 +98,28 @@ function App() {
         }
     }
 
-
   return (
     <>
-      {openModal.add && <ModalBox
+        {openModal.add && <ModalBox
           id="addModal"
           buttons={["취소", "저장"]}
           onClickBtn={onClickBtn}
-      />}
-        <Header/>
+        />}
+
+        {viewModal.open && <ModalList
+          id="viewModal"
+          list={viewModal.data}
+          onClickBtn={callbackFunc.onToggleViewModal}
+        />}
+
+
+        <Header onClickBtn={onToggleModal}/>
 
      
             <div className="boxWrapper">
-                <Box/><Box/><Box/>
-                <Box/><Box/><Box/>
-            {/* {selectData.map((item) => {
-                return <Card id={item.url} key={item.url} data={item} onClick={onClickBtn}/>
-            })} */}
+                {groupList.map((group) => {
+                    return <Box key={group} group={group} onClick={callbackFunc.onClickGroupBox}/>
+                })}
             </div>
        
      

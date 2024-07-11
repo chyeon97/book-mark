@@ -4,7 +4,7 @@ import SearchInput from "./SearchInput";
 import Button from "./Button";
 
 const URL = "url";
-const CONTENTS = "contetns";
+const CONTENTS = "contents";
 
 const ModalBox = ({id, buttons, onClickBtn })=> {
     const [inputInfo, setInputInfo] = useState({
