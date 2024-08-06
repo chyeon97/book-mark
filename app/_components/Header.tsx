@@ -8,10 +8,10 @@ interface HeaderProps {
 }
 const Header = ({list, bgColor, fgColor}: HeaderProps) => {
     return (
-        <div className="flex flex-row w-full bg-yellow-50">
+        <div className="flex flex-row bg-green-500">
             {list.map((item) => {
                 return (
-                    <div className="m-2">{item}</div>
+                    <div>{item}</div>
                 )
             })}
         </div>
