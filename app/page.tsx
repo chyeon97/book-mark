@@ -1,10 +1,13 @@
-import { Header } from "./_components"
-
+import { Header, Navigation } from "./_components";
 
 const MyBookMark = () => {
-  const headerList = ["카테고리", "알림"]
+  const headerList = ["아이콘", "화면모드 전환"]
   return (
-    <Header list={headerList} bgColor=""></Header>
+    <div>
+      <Header list={headerList}/>
+      <Navigation/>
+    </div>
+   
   )
 }
 
