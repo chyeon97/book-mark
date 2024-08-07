@@ -8,7 +8,7 @@ interface HeaderProps {
 }
 const Header = ({list, bgColor, fgColor}: HeaderProps) => {
     return (
-        <div className="flex mx-auto h-20 justify-between items-center bg-green-700">
+        <div className="flex container h-20 justify-end items-center bg-gray-200">
             {list.map((item) => {
                 return (
                     <div>{item}</div>
