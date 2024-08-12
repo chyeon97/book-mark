@@ -1,24 +1,21 @@
-import React from "react";
+"use client";
 import {IconItem} from "./index";
-
-
-const sample = [
-    
-    {
-        id: "1",
-        icon: "https://img.icons8.com/ios/50/settings--v1.png",
-        text: "설정"
-    }
-]
+import { MENU_ITEM } from "@/utils/constants";
+import { useMenu } from "@/stores";
 
 const Navigation = () => {
-    return (
-        <div className="hidden sm:block h-screen w-80 bg-gray-200">
-           <img className="m-2" src="/mainLogo.svg" alt="아이콘" width="65"/>
-            {sample.map((item) => {
-                return (<IconItem key={item.id} icon={item.icon} text={item.text}/>)
-            })}
+    const {status} = useMenu(state => state);
 
+    return (
+        <div className={`${status ? "hidden" : "hidden sm:block h-screen w-80 bg-gray-200"}`}>
+           <img className="m-2" src="/mainLogo.svg" alt="아이콘" width="65"/>
+          
+           {MENU_ITEM.map((item) => {
+                return (
+                    <IconItem key={item.id} icon={item.icon} text={item.text} hoverBottom={false}/>
+            )
+            })}
+           
         </div>
     )
 }

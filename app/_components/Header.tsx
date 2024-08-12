@@ -1,18 +1,17 @@
-import React, { ReactElement } from "react";
+"use client";
+import React from "react";
 import Button from "./Button";
-
-const buttonList = [
-    { sm_show: true, icon: "https://img.icons8.com/ios-filled/50/menu--v1.png", width: 30,},
-    { sm_show: false, icon: "https://img.icons8.com/ios/50/do-not-disturb-2.png", width: 30, hoverStyle: { default: "bg-gray-200", dark: "bg-white" } },
-]
-
+import {HEADER_BUTTONS} from '@/utils/constants'
+import { useMenu } from "@/stores";
 
 const Header = () => {
+    const {status} = useMenu(state => state);
+    console.log( status)
     return (
-        <div className="flex container h-20 justify-between items-center px-3">
-            {buttonList.map((info) => {
+        <div className={`${status ? "hidden": ""} flex container h-20 justify-between items-center px-3`}>
+            {HEADER_BUTTONS.map((info) => {
                 return (
-                    <Button sm_show={info.sm_show} icon={info.icon} iconStyle={{ width: info.width, hoverStyle: info.hoverStyle}} />
+                    <Button key={info.id} id={info.id} sm_show={info.sm_show} icon={info.icon} iconStyle={{ width: info.width, hoverStyle: info.hoverStyle}} />
                 )
             })}
         </div>
