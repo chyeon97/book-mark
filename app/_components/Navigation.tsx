@@ -12,7 +12,7 @@ const Navigation = () => {
           
            {MENU_ITEM.map((item) => {
                 return (
-                    <IconItem key={item.id} icon={item.icon} text={item.text} hoverBottom={false}/>
+                    <IconItem key={item.id} icon={item.icon} text={item.text}/>
             )
             })}
            
