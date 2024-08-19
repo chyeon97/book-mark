@@ -1,19 +1,22 @@
-import { Header, Navigation, MobileNavigation } from "./_components";
+import {Header, Navigation, MobileNavigation} from "./_components";
+import {Box, SearchInput} from "@/app/_components";
 
 
 const MyBookMark = () => {
-  
+
   return (
-    <div>
+    <>
       <div className="flex">
         <MobileNavigation/>
         <Navigation/>
         <Header/>
       </div>
-     
-      
-    </div>
-   
+      <Box>
+        <SearchInput/>
+      </Box>
+
+    </>
+
   )
 }
 
