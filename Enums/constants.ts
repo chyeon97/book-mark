@@ -1,17 +1,17 @@
 export const MENU_ITEM = [
     {
         id: "1",
-        icon: "https://img.icons8.com/ios/50/settings--v1.png",
-        text: "설정"
+        icon: "https://img.icons8.com/ios/50/home--v1.png",
+        text: "대시보드"
     },
     {
         id: "2",
-        icon: "https://img.icons8.com/ios/50/settings--v1.png",
+        icon: "https://img.icons8.com/ios/50/categorize.png",
         text: "카테고리"
     },
     {
         id: "3",
-        icon: "https://img.icons8.com/ios/50/settings--v1.png",
+        icon: "https://img.icons8.com/ios/50/appointment-reminders--v1.png",
         text: "알림"
     },
 ]

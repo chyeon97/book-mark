@@ -1,13 +1,13 @@
 "use client"
-import { useMenu } from "@/stores"
+import { useMenu } from "@/hooks"
 import IconItem from "./IconItem";
-import { MENU_ITEM } from "@/utils/constants";
+import { MENU_ITEM } from "@/Enums/constants";
 
 const MobileNavigation = () => {
     const {status, onToggleStatus} = useMenu(state => state);
 
     return (
-        <div className={`${status ? "" : "hidden"} w-full h-screen bg-white p-5`}>
+        <div className={`${status ? "" : "hidden"} w-full bg-white p-5`}>
             <img 
                 className="float-right hover:cursor-pointer" 
                 width="30" 

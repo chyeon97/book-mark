@@ -5,6 +5,7 @@ import Button from "./Button";
 import MobileNavigation from "./MobileNavigation";
 import SearchInput from './SearchInput';
 import Box from './Box'
+import Card from './Card'
 
 export {
     Navigation,
@@ -13,5 +14,6 @@ export {
     Button,
     MobileNavigation,
     SearchInput,
-    Box
+    Box,
+    Card
 }

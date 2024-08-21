@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useMenu } from "@/stores";
+import { useMenu } from "@/hooks";
 
 interface ButtonProps {
     id: string,

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
+import {Header, Navigation, MobileNavigation, Box} from "@/components";
 
 const inter = Noto_Sans_KR({ subsets: ["latin"] });
 
@@ -19,9 +20,19 @@ export default function RootLayout({
 }>) {
   return (
     <html className="" lang="ko">
-      <body className={`w-screen h-screen ${inter.className} bg-white dark:bg-gray-950 relative`}>
-        {children}
+
+      <body>
+        <div className={`sm:grid h-screen sm:overflow-auto`}>
+          <Header/>
+          <MobileNavigation/>
+          <Navigation/>
+
+          <Box>
+            {children}
+          </Box>
+        </div>
       </body>
+
     </html>
   );
 }

@@ -1,5 +1,18 @@
 import type { Config } from "tailwindcss";
 
+const converRem = (rem:number, base = 16) => `${rem * base}rem`;
+const range = (start:number, end:number) => {
+  const floatList = [0.25, 0.5, 0.75]
+  const inteagerList =  Array.from({length: end}, (_, index) => index+1)
+
+  return inteagerList.reduce((acc:number[], cur) => {
+      floatList.map((f) => {
+        return acc.push(f + cur)
+      })
+      return acc;
+  }, [])
+}
+
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,12 +21,26 @@ const config: Config = {
   ],
   darkMode: "class",
   theme: {
-    extend: {
+    extend: { 
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+
+      minWidth: {
+        ...range(1, 100).reduce((acc:any, cur) => {
+          acc[`${cur}rem`] = converRem(cur);
+          return acc;
+        }, {}),
+      },
+    
+      minHeight: {
+        ...range(1, 100).reduce((acc:any, cur) => {
+          acc[`${cur}rem`] = converRem(cur);
+          return acc;
+        }, {}),
+      }
     },
   },
   plugins: [],
