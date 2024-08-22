@@ -27,6 +27,39 @@ body {
     font-weight: bold;
     font-size: 1.5rem;
   }
+
+  .flexRowMode {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    
+  
+    flexRowMode--around {
+      @apply justify-around
+    }
+    space_between {
+      @apply justify-between
+    }
+  }
+
+  .flexColMode {
+    display:flex;
+    flex-direction: column;
+
+    
+
+    flexRowMode--around {
+      @apply justify-around
+    }
+    space_between {
+      @apply justify-between
+    }
+  }
+
+
+  /* .card {
+    p-10
+  } */
 }
 
 
@@ -44,4 +77,12 @@ figure,
 p,
 pre {
   margin: 0;
+}
+
+h1{
+  font-size: 2rem;
+}
+
+h2{
+  font-size: 1.5rem;
 }

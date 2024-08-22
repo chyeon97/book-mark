@@ -4,13 +4,16 @@ const converRem = (rem:number, base = 16) => `${rem * base}rem`;
 const range = (start:number, end:number) => {
   const floatList = [0.25, 0.5, 0.75]
   const inteagerList =  Array.from({length: end}, (_, index) => index+1)
-
-  return inteagerList.reduce((acc:number[], cur) => {
+  
+  const array = inteagerList.reduce((acc:number[], cur) => {
       floatList.map((f) => {
         return acc.push(f + cur)
       })
       return acc;
   }, [])
+
+  return [...array, ...inteagerList]
+
 }
 
 const config: Config = {
