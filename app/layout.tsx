@@ -22,7 +22,7 @@ export default function RootLayout({
     <html className="" lang="ko">
 
       <body>
-        <div className={`sm:grid h-screen sm:overflow-auto`}>
+        <div className={`sm:flex flex-col h-screen sm:overflow-auto`}>
           <Header/>
           <MobileNavigation/>
           <Navigation/>

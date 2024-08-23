@@ -6,6 +6,7 @@ import MobileNavigation from "./MobileNavigation";
 import SearchInput from './SearchInput';
 import Box from './Box'
 import Card from './Card'
+import List from './List'
 
 export {
     Navigation,
@@ -15,5 +16,6 @@ export {
     MobileNavigation,
     SearchInput,
     Box,
-    Card
+    Card,
+    List,
 }

@@ -20,12 +20,12 @@ body {
   }
 }
 
-@layer components {
-  
+@layer components {  
   .title {
     color:black;
     font-weight: bold;
     font-size: 1.5rem;
+    @apply my-8 sm:mb-4
   }
 
   .flexRowMode {
@@ -56,10 +56,30 @@ body {
     }
   }
 
+  .list {
+    display: flex;
+    cursor: pointer;
+    list-style-type: none;
+    padding: 1rem;
 
-  /* .card {
-    p-10
-  } */
+    @apply
+    hover:bg-gray-100
+    hover:text-gray-950
+  }
+
+  .list-col{
+    @apply
+    flex-col
+  }
+
+  .card {
+      display:flex;
+      flex-direction: row;
+  }
+
+  .card-col {
+    @apply flex-col
+  }
 }
 
 
