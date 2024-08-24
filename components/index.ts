@@ -7,6 +7,7 @@ import SearchInput from './SearchInput';
 import Box from './Box'
 import Card from './Card'
 import List from './List'
+import DropDwonContainer from "./DropDownContainer";
 
 export {
     Navigation,
@@ -18,4 +19,5 @@ export {
     Box,
     Card,
     List,
+    DropDwonContainer
 }

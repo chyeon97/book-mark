@@ -53,5 +53,9 @@ export const CATEGORY = [
     {
         id: "1",
         category: "브라우저",
+    },
+    {
+        id: "2",
+        category: "테스트",
     }
 ]

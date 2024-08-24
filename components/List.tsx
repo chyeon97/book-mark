@@ -1,3 +1,7 @@
+"use client"
+
+import { useMenu } from "@/hooks"
+
 interface childrenType {
     id: string | number,
     category: string,
@@ -11,11 +15,21 @@ interface ListProps {
 }
 
 const List = ({children, col}:ListProps) => {
+    const {onSelectedItem, onToggleDropDown} = useMenu((state) => state)
+
+    const onClickItem = (e: React.MouseEvent<HTMLLIElement>) => {
+        onSelectedItem(e.currentTarget.innerText || "")
+        onToggleDropDown();
+    }
+
+    const onClickURL = () => {
+        return window.open(children.url)
+    }
 
     const renderContainer = (): React.ReactElement => {
         if(col) {
             return (
-                <li className="list justify-between items-center">
+                <li className="list justify-between items-center" onClick={() => onClickURL()}>
                     <div className="list list-col">
                         <p className="text-lg">{children.url}</p>
                         <p className="text-sm">{children.note}</p>
@@ -26,7 +40,7 @@ const List = ({children, col}:ListProps) => {
             )
         }
         return (
-            <li className="list">{children.category}</li>
+            <li className="list" onClick={onClickItem}>{children.category}</li>
         )
     }
 
