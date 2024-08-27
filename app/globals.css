@@ -12,6 +12,7 @@ body {
   color: black;
   background: white;
   min-width: 400px;
+  @apply sm:px-3
 }
 
 @layer utilities {
@@ -33,13 +34,6 @@ body {
     flex-direction: row;
     align-items: center;
     
-  
-    flexRowMode--around {
-      @apply justify-around
-    }
-    space_between {
-      @apply justify-between
-    }
   }
 
   .flexColMode {
@@ -76,6 +70,7 @@ body {
       display:flex;
       flex-direction: row;
       justify-content: space-between;
+      cursor: pointer;
   }
 
   .card-col {

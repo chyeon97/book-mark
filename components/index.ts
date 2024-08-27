@@ -9,7 +9,6 @@ import Card from './Card'
 import List from './List'
 import DropDwonContainer from "./DropDownContainer";
 import Form from './Form'
-import MobileForm from "./MobileForm";
 
 export {
     Navigation,
@@ -23,5 +22,4 @@ export {
     List,
     DropDwonContainer,
     Form,
-    MobileForm,
 }

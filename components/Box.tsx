@@ -10,7 +10,7 @@ const Box = ({children} : BoxType) => {
     console.log(status)
 
     return (
-        <div className={status ? "hidden" : "flex flex-col mx-3 h-[calc(100%-10rem)] sm:mx-[400px] sm:w-[calc(100%-500px)]"}>
+        <div className={status ? "hidden" : "flex flex-col h-[calc(100%-10rem)] sm:mx-[400px] sm:w-[calc(100%-500px)]"}>
           {children}
         </div>
     )

@@ -1,12 +1,13 @@
 "use client"
-import {Card, MobileForm} from "@/components"
+import {Card} from "@/components"
+import {MobileForm} from "./components"
 import {useState} from "react";
 
 const DashBoard = () => {
     const [formOpen, setFormOpen] = useState(false)
-    const onClickEnrollMobile = () => {
-      console.log("onClickEnrollMobile")
-      return setFormOpen(true)
+    
+    const onToggleEnrollMForm = () => {
+      return setFormOpen((state) => !state)
     }
 
     const onClickAlarmMobile = () => {
@@ -16,7 +17,7 @@ const DashBoard = () => {
 
     return (
       <>
-        {formOpen && <MobileForm/>}
+        {formOpen && <MobileForm onToggleForm={onToggleEnrollMForm}/>}
         <div className="flex flex-col w-full space-y-4 sm:space-y-4">
           <div className="hidden sm:flexRowMode sm:space_between space-x-4">
             <Card width="50%" bgColor="black" minHeight="1rem" padding="10">
@@ -30,7 +31,7 @@ const DashBoard = () => {
           </div>
 
           <div className="space-y-4 mt-2 sm:hidden sm:space-y-0">
-            <Card width="100%" bgColor="black" minHeight="1rem" padding="10" onClickCard={onClickEnrollMobile}>
+            <Card width="100%" bgColor="black" minHeight="1rem" padding="10" onClickCard={onToggleEnrollMForm}>
               <h2>북마크 등록</h2>
             </Card>
 
