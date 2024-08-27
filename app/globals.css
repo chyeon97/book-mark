@@ -48,7 +48,7 @@ body {
 
     
 
-    flexRowMode--around {
+    flexColMode--around {
       @apply justify-around
     }
     space_between {
@@ -75,6 +75,7 @@ body {
   .card {
       display:flex;
       flex-direction: row;
+      justify-content: space-between;
   }
 
   .card-col {
