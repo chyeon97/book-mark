@@ -4,7 +4,8 @@ interface CardProp {
   minHeight: '0' | '1rem' | '2rem' | '3rem',
   padding:'0'| '10',
   bgColor: 'white' | 'black',
-  children: React.ReactNode
+  children: React.ReactNode,
+  onClickCard: () => void,
 }
 
 const widthClass = {
@@ -31,10 +32,13 @@ const paddingClass = {
   '10': 'p-10',
 }
 
-const Card = ({width, minHeight, padding, children, bgColor} : CardProp) => {
-  
+const Card = ({width, minHeight, padding, children, bgColor, onClickCard} : CardProp) => {
+
   return (
-    <div className={`card card-col ${widthClass[width]} ${minHeightClass[minHeight]} ${bgColorClass[bgColor]} ${paddingClass[padding]}`}>
+    <div 
+      className={`card card-col ${widthClass[width]} ${minHeightClass[minHeight]} ${bgColorClass[bgColor]} ${paddingClass[padding]}`}
+      onClick={() => onClickCard()}
+    >
       {children}
     </div>
   )

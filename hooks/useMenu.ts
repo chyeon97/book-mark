@@ -3,7 +3,7 @@ import {create} from 'zustand'
 import { combine } from 'zustand/middleware'
 
 
-interface MenuState extends CategoryState{
+interface MenuState extends CategoryState, EnrollState{
     status: boolean,
     onToggleStatus: () => void,
 }
@@ -15,18 +15,31 @@ interface CategoryState {
     onToggleDropDown: () => void,
 }
 
+interface EnrollState {
+    openForm: boolean,
+    category: string,
+    url: string,
+    note: string,
+    onToggleForm : () => void,
+}
+
 
 const useMenu = create<MenuState>(
     combine(
         {
             open: false,
             status: false,
-            selected: CATEGORY[0].category
+            selected: CATEGORY[0].category,
+            openForm: false,
+            category: "",
+            url: "",
+            note: "",
         }, 
         (set) => ({
             onToggleStatus: () => set(state => ({status: !state.status})),
             onSelectedItem: (text) => set(state => {return state.selected != text ? ({selected: text}): state}),
-            onToggleDropDown: () => set(state => ({open: !state.open}))
+            onToggleDropDown: () => set(state => ({open: !state.open})),
+            onToggleForm: () => set(state => ({openForm: !state.openForm}))
         })
     )
 );
