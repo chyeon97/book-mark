@@ -1,8 +1,9 @@
+"use client"
 
 interface SearchInputProps {
     label: string
     value: string
-    onChangeValue: () => void
+    onChangeValue: (e:React.ChangeEvent<HTMLInputElement>) => void
 }
 
 const SearchInput = ({label, value, onChangeValue} : SearchInputProps) => {
@@ -11,7 +12,7 @@ const SearchInput = ({label, value, onChangeValue} : SearchInputProps) => {
     return (
         <div className="flexRowMode justify-between mb-6">
             <label className="text-md">{label}</label>
-            <input className="w-64 outline-none border rounded-md p-1.5" value={value} onChange={onChangeValue}/>
+            <input id={label} className="w-64 outline-none border rounded-md p-1.5" value={value} onChange={onChangeValue}/>
         </div>
     )
 }

@@ -2,9 +2,16 @@
 import { useMenu } from "@/hooks"
 import IconItem from "./IconItem";
 import { MENU_ITEM } from "@/Enums/constants";
+import {getURL} from "@/utils";
+import {useRouter} from "next/navigation";
 
 const MobileNavigation = () => {
+  const router = useRouter();
     const {status, onToggleStatus} = useMenu(state => state);
+
+    const onMoveURL = (text: string) => {
+        return router.push(getURL(text))
+    }
 
     return (
         <div className={`${status ? "" : "hidden"} w-full bg-white p-5`}>
@@ -19,7 +26,7 @@ const MobileNavigation = () => {
 
             <div className="py-10">
               {MENU_ITEM.map((item) => {
-                return (<IconItem  key={item.id} icon={item.icon} text={item.text} bgColor="bg-white" hoverColor="bg-gray-50"/>)
+                return (<IconItem  key={item.id} icon={item.icon} text={item.text} onClickItem={onMoveURL} bgColor="bg-white" hoverColor="bg-gray-50"/>)
               })}
             </div>
            

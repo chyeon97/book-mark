@@ -1,3 +1,4 @@
+"use client"
 interface CardProp {
   // display: string,
   width: '100%' | '75%' | '50%' | '25%', 

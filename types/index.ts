@@ -3,5 +3,5 @@ export interface DocDataType {
   content: string
   url: string
   deleteTime: string
-  storeTime: any
+  storeTime: Date
 }
