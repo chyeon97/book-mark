@@ -1,16 +1,17 @@
 "use client"
 
 import { useMenu } from "@/hooks"
+import {DocDataType} from "@/types";
 
 interface childrenType {
     id: string | number,
-    category: string,
-    note?: string,
+    group: string,
+    content?: string,
     url?: string,
 }
 
 interface ListProps {
-    children: childrenType
+    children: childrenType | DocDataType
     col: boolean,
 }
 
@@ -23,7 +24,7 @@ const List = ({children, col}:ListProps) => {
     }
 
     const onClickURL = () => {
-        return window.open(children.url)
+        return window.open(`https://${children.url}`, "_blank")
     }
 
     const renderContainer = (): React.ReactElement => {
@@ -32,7 +33,7 @@ const List = ({children, col}:ListProps) => {
                 <li className="list justify-between items-center" onClick={() => onClickURL()}>
                     <div className="list list-col">
                         <p className="text-lg">{children.url}</p>
-                        <p className="text-sm">{children.note}</p>
+                        <p className="text-sm">{children.content}</p>
                     </div>
 
                     <img width="20" src="https://img.icons8.com/ios/50/forward--v1.png" alt="forward--v1"/>
@@ -40,7 +41,7 @@ const List = ({children, col}:ListProps) => {
             )
         }
         return (
-            <li className="list" onClick={onClickItem}>{children.category}</li>
+            <li className="list" onClick={onClickItem}>{children.group}</li>
         )
     }
 

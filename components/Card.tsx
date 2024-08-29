@@ -5,7 +5,7 @@ interface CardProp {
   padding:'0'| '10',
   bgColor: 'white' | 'black',
   children: React.ReactNode,
-  onClickCard: () => void,
+  onClickCard?: () => void,
 }
 
 const widthClass = {
@@ -37,7 +37,7 @@ const Card = ({width, minHeight, padding, children, bgColor, onClickCard} : Card
   return (
     <div 
       className={`card card-col ${widthClass[width]} ${minHeightClass[minHeight]} ${bgColorClass[bgColor]} ${paddingClass[padding]}`}
-      onClick={() => onClickCard()}
+      onClick={() => onClickCard && onClickCard()}
     >
       {children}
     </div>

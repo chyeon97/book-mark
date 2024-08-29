@@ -26,36 +26,36 @@ export const CATETORY_CONTETNS = [
     {
         id: "1",
         url: "https://www.naver.com",
-        note: "네이버 테스트입니다.",
-        category: "browser",
+        content: "네이버 테스트입니다.",
+        group: "browser",
     },
     {
         id: "2",
         url: "https://www.google.co.kr",
-        note: "구글 테스트입니다.",
-        category: "browser",
+        content: "구글 테스트입니다.",
+        group: "browser",
     },
     {
         id: "3",
         url: "https://search.brave.com",
-        note: "브레이브 테스트입니다.",
-        category: "browser",
+        content: "브레이브 테스트입니다.",
+        group: "browser",
     },
     {
         id: "4",
         url: "https://chatgpt.com",
-        note: "chatGPT 테스트입니다.",
-        category: "browser",
+        content: "chatGPT 테스트입니다.",
+        group: "browser",
     },
 ]
 
 export const CATEGORY = [
     {
         id: "1",
-        category: "브라우저",
+        group: "브라우저",
     },
     {
         id: "2",
-        category: "테스트",
+        group: "테스트",
     }
 ]

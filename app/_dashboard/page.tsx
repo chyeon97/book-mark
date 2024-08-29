@@ -1,11 +1,22 @@
 "use client"
-import {Card} from "@/components"
+import {Card, List} from "@/components"
 import {MobileForm} from "./components"
-import {useState} from "react";
+import {useState, useEffect, useMemo} from "react";
+import API from "@/utils/api";
+import {DocDataType} from "@/types";
 
 const DashBoard = () => {
+    const api = useMemo(() => new API(), [])
     const [formOpen, setFormOpen] = useState(false)
-    
+    const [allList, setAllList] = useState<DocDataType[]>([]);
+
+    useEffect(() => {
+      ( async () => {
+        const getAllDatas = await api.getAllData();
+        setAllList(getAllDatas)
+      })();
+    }, [])
+
     const onToggleEnrollMForm = () => {
       return setFormOpen((state) => !state)
     }
@@ -13,7 +24,6 @@ const DashBoard = () => {
     const onClickAlarmMobile = () => {
       console.log("onClickAlarmMobile")
     }
-
 
     return (
       <>
@@ -36,8 +46,24 @@ const DashBoard = () => {
             </Card>
 
             <Card width="100%" bgColor="white" minHeight="1rem" padding="10" onClickCard={onClickAlarmMobile}>
-              오늘 알람
+              <h3 className="bold">오늘 알람</h3>
             </Card>
+
+            <div>
+              <h3 className="bold">최근 저장한 북마크</h3>
+              <Card width="100%" bgColor="white" minHeight="1rem" padding="0">
+
+                <ul>
+                  {allList.map((items) => {
+                    return (
+                      <List col={true}>
+                        {items}
+                      </List>
+                    )
+                  })}
+                </ul>
+              </Card>
+            </div>
           </div>
 
           {/*<Card width="100%" bgColor="white" minHeight="2rem" padding="10">*/}
