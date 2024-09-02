@@ -1,7 +1,7 @@
 "use client"
-
 import { useMenu } from "@/hooks"
 import {DocDataType} from "@/types";
+import React from "react";
 
 interface childrenType {
     id: string | number,
@@ -15,7 +15,7 @@ interface ListProps {
     col: boolean,
 }
 
-const List = ({children, col}:ListProps) => {
+const MyObjectList = ({children, col}:ListProps) => {
     const {onSelectedItem, onToggleDropDown} = useMenu((state) => state)
 
     const onClickItem = (e: React.MouseEvent<HTMLLIElement>) => {
@@ -52,4 +52,4 @@ const List = ({children, col}:ListProps) => {
     )
 }
 
-export default List;
+export default MyObjectList;

@@ -1,11 +1,16 @@
 "use client"
-import {Card, List} from "@/components"
+import {Card, MyObjectList} from "@/components"
 import {MobileForm} from "./components"
 import {useState, useEffect, useMemo} from "react";
 import API from "@/utils/api";
 import {DocDataType} from "@/types";
+import useDBStore from "@/hooks/useDBStore";
+import useMenu from "@/hooks/useMenu";
+import {filterGroupData} from "@/utils";
 
 const DashBoard = () => {
+    const {onSelectedItem} = useMenu()
+    const {setGroupInfo} = useDBStore();
     const api = useMemo(() => new API(), [])
     const [formOpen, setFormOpen] = useState(false)
     const [allList, setAllList] = useState<DocDataType[]>([]);
@@ -13,8 +18,12 @@ const DashBoard = () => {
     useEffect(() => {
       ( async () => {
         const getAllDatas = await api.getAllData();
+        const filterGroupInfo = filterGroupData(getAllDatas)
+        setGroupInfo(filterGroupInfo);
+        onSelectedItem(filterGroupInfo[0]);
         setAllList(getAllDatas)
       })();
+
     }, [])
 
     const onToggleEnrollMForm = () => {
@@ -56,9 +65,9 @@ const DashBoard = () => {
                 <ul>
                   {allList.map((items) => {
                     return (
-                      <List col={true}>
+                      <MyObjectList col={true}>
                         {items}
-                      </List>
+                      </MyObjectList>
                     )
                   })}
                 </ul>

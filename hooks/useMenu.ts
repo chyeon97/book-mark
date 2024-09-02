@@ -29,7 +29,7 @@ const useMenu = create<MenuState>(
         {
             open: false,
             status: false,
-            selected: CATEGORY[0].category,
+            selected: "",
             openForm: false,
             category: "",
             url: "",

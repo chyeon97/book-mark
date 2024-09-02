@@ -1,6 +1,6 @@
 import api from './api';
 import url from "@/Enums/url";
-
+import {DocDataType} from "@/types";
 
 export const getURL = (text: string) => {
     switch (text) {
@@ -16,6 +16,13 @@ export const getURL = (text: string) => {
         default:
             return url.MAIN
     }
+}
+
+export const filterGroupData = (datas: DocDataType[]): string[] => {
+    return [...datas.reduce<Set<string>>((acc, cur) => {
+        acc.add(cur.group)
+        return acc;
+    }, new Set<string>())];
 }
 
 export {

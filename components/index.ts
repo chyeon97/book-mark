@@ -6,7 +6,7 @@ import MobileNavigation from "./MobileNavigation";
 import SearchInput from './SearchInput';
 import Box from './Box'
 import Card from './Card'
-import List from './List'
+import MyObjectList from './MyObjectList'
 import DropDwonContainer from "./DropDownContainer";
 import Form from './Form'
 
@@ -19,7 +19,7 @@ export {
     SearchInput,
     Box,
     Card,
-    List,
+    MyObjectList,
     DropDwonContainer,
     Form,
 }

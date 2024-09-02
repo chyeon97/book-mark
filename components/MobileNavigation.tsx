@@ -10,7 +10,8 @@ const MobileNavigation = () => {
     const {status, onToggleStatus} = useMenu(state => state);
 
     const onMoveURL = (text: string) => {
-        return router.push(getURL(text))
+        router.push(getURL(text));
+        onToggleStatus();
     }
 
     return (

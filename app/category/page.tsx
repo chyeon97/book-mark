@@ -1,5 +1,6 @@
-import { Card, DropDwonContainer, List } from "@/components";
+import { Card, DropDwonContainer, MyObjectList } from "@/components";
 import {CATEGORY, CATETORY_CONTETNS} from '@/Enums/constants';
+import MyUlContainer from "@/app/category/_components/MyUlContainer";
 
 const CategoryMain = () => {
     
@@ -11,22 +12,20 @@ const CategoryMain = () => {
                 {/* 모바일 화면 -> 드롭다운 */}
                 <div className="block sm:hidden"> 
                     <DropDwonContainer>
-                        <ul className="animate-slideDown mt-1 p-1 border border-solid border-gray-300 rounded-md divide-y divide-gray-200 sm:border-none sm:p-2">
-                            {CATEGORY.map((item, index) => <List key={index} col={false}>{item}</List>)}
-                        </ul>
+                        <MyUlContainer/>
                     </DropDwonContainer>
                 </div>
                 <div className="hidden sm:block">
                     <Card width={'25%'} bgColor="white" minHeight="3rem" padding="0">
                         <ul className="p-2 divide-y divide-slate-200">
-                            {CATEGORY.map((item, index) => <List key={index} col={false}>{item}</List>)}
+                            {CATEGORY.map((item, index) => <MyObjectList key={index} col={false}>{item}</MyObjectList>)}
                         </ul>
                     </Card>
                 </div>
 
                 <Card width={'75%'} bgColor="black" minHeight="3rem" padding="0">
                     <ul className="p-2 ">
-                        {CATETORY_CONTETNS.map((item, index) => <List key={index} col={true}>{item}</List>)}
+                        {CATETORY_CONTETNS.map((item, index) => <MyObjectList key={index} col={true}>{item}</MyObjectList>)}
                     </ul>
                 </Card>
                 
