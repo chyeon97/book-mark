@@ -30,13 +30,18 @@ const DashBoard = () => {
       return setFormOpen((state) => !state)
     }
 
+    const onReloadAllList = async () => {
+      const getAllDatas = await api.getAllData();
+      setAllList(getAllDatas)
+    }
+
     const onClickAlarmMobile = () => {
       console.log("onClickAlarmMobile")
     }
 
     return (
       <>
-        {formOpen && <MobileForm onToggleForm={onToggleEnrollMForm}/>}
+        {formOpen && <MobileForm onToggleForm={onToggleEnrollMForm} onReloadAllList={onReloadAllList}/>}
         <div className="flex flex-col w-full space-y-4 sm:space-y-4">
           <div className="hidden sm:flexRowMode sm:space_between space-x-4">
             <Card width="50%" bgColor="black" minHeight="1rem" padding="10">

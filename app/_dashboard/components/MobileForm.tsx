@@ -1,10 +1,13 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import { SearchInput } from "@/components";
 import FormButton from "./FormButton";
 import {DocDataType} from "@/types";
+import { isEmptyData } from "@/utils";
+import API from "@/utils/api";
 
 interface MobileFormProps {
-    onToggleForm: () => void
+    onToggleForm: () => void,
+    onReloadAllList: () => void,
 }
 
 interface matchKeyProps {
@@ -14,14 +17,31 @@ interface matchKeyProps {
     설명: string
 }
 
-const MobileForm = ({ onToggleForm }: MobileFormProps) => {
+const MobileForm = ({ onToggleForm, onReloadAllList }: MobileFormProps) => {
     const [info, setInfo] = useState<DocDataType>({
         group: "",
         content: "",
         url: "",
-        deleteTime: "",
-        storeTime: new Date(),
+        storeTime: null,
     })
+
+    useEffect(() => {
+        return () => {
+            if(!isEmptyData("enroll", info)){
+                initSetInfo();
+                onReloadAllList();
+            }
+        }
+    })
+
+    const initSetInfo = () => {
+        setInfo({
+            group: "",
+            content: "",
+            url: "",
+            storeTime: null,
+        });
+    }
 
     const onChangeInfo = (e:React.ChangeEvent<HTMLInputElement>) => {
         const matchKey:matchKeyProps = {
@@ -36,6 +56,26 @@ const MobileForm = ({ onToggleForm }: MobileFormProps) => {
             }
         })
 
+    }
+
+    const onClickConfrim = (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+
+        info.storeTime = new Date();
+        if(isEmptyData("enroll", info)) return;
+
+        const api = new API();
+        ( async () => {
+            try {
+                await api.postNewData(info)
+            } catch(errors) {
+                console.log(errors)
+            }
+
+            onToggleForm();
+        })();
+        
+        
     }
 
     return (
@@ -53,7 +93,7 @@ const MobileForm = ({ onToggleForm }: MobileFormProps) => {
 
                     <div className="text-right space-x-7">
                         <FormButton label="취소" type="button" bgColor="white" onClickBtn={onToggleForm} />
-                        <FormButton label="확인" type="submit" bgColor="black" onClickBtn={() => { }} />
+                        <FormButton label="확인" type="submit" bgColor="black" onClickBtn={(e) => onClickConfrim(e)} />
                     </div>
 
                 </form>

@@ -1,8 +1,9 @@
 interface FormButtonProps {
+
     label:string
     type: "submit" | "reset" | "button"
     bgColor: "white" | "black"
-    onClickBtn: () => void
+    onClickBtn: (e:React.MouseEvent<HTMLButtonElement>) => void
 }
 
 const colorClass = {
@@ -15,7 +16,7 @@ const FormButton = ({label, type, bgColor, onClickBtn}: FormButtonProps) => {
         <button 
             type={type}
             className={`px-3.5 py-2 rounded-md ${colorClass[bgColor]}`}
-            onClick={onClickBtn}
+            onClick={(e) => onClickBtn(e)}
             >
             {label}
         </button>

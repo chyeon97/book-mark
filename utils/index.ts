@@ -25,7 +25,14 @@ export const filterGroupData = (datas: DocDataType[]): string[] => {
     }, new Set<string>())];
 }
 
-export {
-  api,
+export const isEmptyData = (type: "enroll" | "delete" | "modify", datas: DocDataType): boolean => {
+    switch(type){
+        case "enroll":
+            return Object.values(datas).some((value) => value === "" || value === undefined || value === null)
+            
 
+            default:
+                return true; 
+    }
 }
+

@@ -12,7 +12,7 @@ body {
   color: black;
   background: white;
   min-width: 400px;
-  @apply sm:px-3
+  @apply px-3 sm:px-0
 }
 
 @layer utilities {

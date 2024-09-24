@@ -2,6 +2,6 @@ export interface DocDataType {
   group: string
   content: string
   url: string
-  deleteTime: string
-  storeTime: Date
+  deleteTime?: string
+  storeTime: Date | null
 }
