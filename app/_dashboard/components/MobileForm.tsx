@@ -7,7 +7,7 @@ import API from "@/utils/api";
 
 interface MobileFormProps {
     onToggleForm: () => void,
-    onReloadAllList: () => void,
+    onGetRecenData: () => void,
 }
 
 interface matchKeyProps {
@@ -17,7 +17,7 @@ interface matchKeyProps {
     설명: string
 }
 
-const MobileForm = ({ onToggleForm, onReloadAllList }: MobileFormProps) => {
+const MobileForm = ({ onToggleForm, onGetRecenData }: MobileFormProps) => {
     const [info, setInfo] = useState<DocDataType>({
         group: "",
         content: "",
@@ -29,7 +29,7 @@ const MobileForm = ({ onToggleForm, onReloadAllList }: MobileFormProps) => {
         return () => {
             if(!isEmptyData("enroll", info)){
                 initSetInfo();
-                onReloadAllList();
+                onGetRecenData();
             }
         }
     })
