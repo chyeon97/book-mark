@@ -11,8 +11,6 @@
 body {
   color: black;
   background: white;
-  min-width: 400px;
-  @apply px-3 sm:px-0
 }
 
 @layer utilities {
@@ -33,28 +31,18 @@ body {
     display:flex;
     flex-direction: row;
     align-items: center;
-    
   }
 
   .flexColMode {
     display:flex;
     flex-direction: column;
-
-    
-
-    flexColMode--around {
-      @apply justify-around
-    }
-    space_between {
-      @apply justify-between
-    }
   }
 
   .list {
     display: flex;
     cursor: pointer;
     list-style-type: none;
-    padding: 1rem;
+    padding: 0.5rem;
 
     @apply
     hover:bg-gray-100
