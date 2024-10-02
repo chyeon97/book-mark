@@ -11,7 +11,7 @@ interface childrenType {
 }
 
 interface ListProps {
-    key: string
+    key: string | number,
     children: childrenType | DocDataType
     col: boolean,
 }
